@@ -1,0 +1,930 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --color-dark: #0E0D0C;
+  --color-light: #F4EFE6;
+  --color-yellow: #C9A24B;
+  --color-light-grey: #A39B8E;
+  --color-grey: #656565;
+
+  --max-width: 1200px;
+  --padding-container: 24px;
+  --header-height: 90px
+}
+
+*,
+*::after,
+*::before {
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-dark);
+  color: var(--color-light-grey);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: calc(var(--max-width) + (var(--padding-container) * 2));
+  width: 100%;
+  padding-inline: var(--padding-container);
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+.small-title {
+  color: var(--color-yellow);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 18%;
+  font-weight: 600;
+
+}
+
+.button {
+  padding: 16px 28px;
+  border-radius: 50px;
+  white-space: nowrap;
+  max-width: max-content;
+  font-size: 15px;
+  border: 1px solid transparent;
+}
+
+.button:hover {
+  filter: brightness(0.4);
+}
+
+.header {
+  background-color: var(--color-dark);
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100vw;
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #2E2A25;
+  z-index: 2000;
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin-inline: auto;
+  align-items: center;
+  gap: 10px 20px;
+}
+
+.logo {
+  font-size: 28px;
+  white-space: nowrap;
+  display: flex;
+  color: var(--color-light);
+}
+
+.yellow {
+  color: var(--color-yellow);
+}
+
+.button-menu {
+  display: none;
+  justify-content: end;
+  cursor: pointer;
+  padding-inline: 15px;
+}
+
+.button-burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+
+  color: var(--color-yellow);
+}
+
+.button-burger:hover {
+  color: #655127;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+}
+
+.nav {
+  margin-inline: auto;
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 3vw, 40px);
+}
+
+.nav-link {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--color-grey);
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.button-book {
+  color: var(--color-dark);
+  background-color: var(--color-yellow);
+}
+
+.main {
+  margin-top: var(--header-height);
+}
+
+.hero-container,
+.discount-container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-dark);
+}
+
+.about-container,
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  background-color: #171513;
+
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px clamp(25px, 4.44vw, 64px);
+  padding-block: 80px;
+}
+
+.hero-left {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, auto);
+  row-gap: 28px;
+}
+
+.hero-left-text {
+  font-size: 58px;
+  line-height: 60px;
+}
+
+.hero-top-text {
+  white-space: nowrap;
+  color: var(--color-light);
+}
+
+.hero-bottom-text {
+  width: 100%;
+}
+
+.hero-left-description {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.hero-left-buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.button-link-menu {
+  color: var(--color-yellow);
+  border: 1px solid currentColor;
+}
+
+.button-link-menu:hover {
+  filter: brightness(1);
+  color: var(--color-dark);
+  border: 1px solid var(--color-yellow);
+  background-color: var(--color-yellow);
+}
+
+.hero-left-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px 28px;
+  flex-wrap: wrap;
+  white-space: nowrap;
+}
+
+.tag {
+  font-size: 14px;
+  color: var(--color-light);
+  padding-left: 18px;
+  position: relative;
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 8px;
+  aspect-ratio: 1;
+  background-color: var(--color-yellow);
+  border-radius: 50%;
+}
+
+.hero-right {
+  --p: 23px;
+  padding: var(--p);
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  container-type: size;
+}
+
+.hero-right:hover,
+.about-left:hover,
+.discount-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px var(--color-yellow);
+}
+
+.hero-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgb(0 0 0 / .4), rgb(0 0 0 / .4)),
+  url("../images/restourant1.jpg") center/cover no-repeat;
+}
+
+.card-discount {
+  border-radius: 24px;
+  border: 1px solid var(--color-yellow);
+  left: var(--p);
+  top: var(--p);
+  transform: translate(0, 0);
+  position: absolute;
+  overflow: hidden;
+  z-index: 1000;
+  animation: card-fly 12s ease-in-out infinite;
+
+  white-space: nowrap;
+}
+
+.card-discount:hover {
+  box-shadow: 0 0 20px var(--color-yellow);
+
+}
+
+@keyframes card-fly {
+  0%, 100% {
+    left: var(--p);
+    top: var(--p);
+    transform: translate(0, 0);
+  }
+  25% {
+    left: calc(100% - var(--p));
+    top: var(--p);
+    transform: translate(-100%, 0);
+  }
+  50% {
+    left: var(--p);
+    top: calc(100% - var(--p));
+    transform: translate(0, -100%);
+  }
+  75% {
+    left: calc(100% - var(--p));
+    top: calc(100% - var(--p));
+    transform: translate(-100%, -100%);
+  }
+}
+
+.card-discount:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #171513;
+  filter: opacity(0.8);
+  z-index: -1;
+}
+
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  padding: 36px;
+}
+
+
+.card-discount-text {
+  font-size: 40px;
+  color: var(--color-yellow);
+}
+
+.card-discount-title {
+  color: var(--color-light);
+  font-size: 13px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 80px;
+  padding-block: 120px;
+}
+
+.about-left {
+  padding: 23px;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: no-repeat url("../images/restourant2.jpg") center/cover;
+  filter: brightness(0.6);
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  position: relative;
+  /*overflow: hidden;*/
+}
+
+.about-right-text {
+  font-size: 48px;
+  line-height: 58px;
+  color: var(--color-light);
+}
+
+.about-right-description {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.about-right-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 16px;
+}
+
+.about-right-specification {
+  position: relative;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  border-radius: 16px;
+  border: 1px solid #2E2A25;
+  background-color: #1F1C19;
+  animation: card-jump 1.5s linear infinite;
+}
+
+.about-right-specification:hover {
+  animation-play-state: paused;
+  border-color: var(--color-yellow);
+  box-shadow: 0 0 20px var(--color-yellow);
+}
+
+.custom-keyframe {
+  animation: card-jump 1.5s linear infinite reverse;
+}
+
+@keyframes card-jump {
+  0%, 50%, 100% {
+    top: 0;
+  }
+  25% {
+    top: -20px;
+  }
+  75% {
+    top: 20px;
+  }
+}
+
+.specification-number {
+  font-size: 28px;
+  color: var(--color-yellow);
+}
+
+.specification-title {
+  color: var(--color-light);
+  font-size: 15px;
+}
+
+.specification-description {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.discount {
+  padding-block: 120px;
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 56px;
+}
+
+.discount-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+}
+
+.discount-text {
+  font-size: 48px;
+  line-height: 58px;
+  color: var(--color-light);
+}
+
+.discount-description {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.discount-medium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.discount-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  padding: 36px;
+  border: 1px solid #2E2A25;
+  background-color: #171513;
+  border-radius: 24px;
+}
+
+.discount-card * {
+  z-index: 1000;
+}
+
+.discount-card-text {
+  font-size: 72px;
+  color: var(--color-yellow);
+}
+
+.discount-card-title {
+  font-size: 20px;
+  color: var(--color-light);
+}
+
+.discount-card-description {
+  font-size: 15px;
+  line-height: 23px;
+}
+
+.discount-bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 48px;
+  padding-block: 120px;
+}
+
+.gallery-top {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.gallery-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 2fr;
+  gap: 20px;
+  padding-inline: 40px;
+}
+
+.gallery-title {
+  font-size: 48px;
+  line-height: 58px;
+  color: var(--color-light);
+}
+
+.gallery-first-line {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  position: relative;
+  animation: gallery-scrolling 5s linear infinite;
+}
+
+.gallery-second-line {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  animation: gallery-scrolling 5s linear infinite reverse;
+}
+
+.gallery-line:hover {
+  animation-play-state: paused;
+}
+
+@keyframes gallery-scrolling {
+  0%, 50%, 100% {
+    left: 0;
+  }
+  25% {
+    left: -40px;
+  }
+  75% {
+    left: 40px;
+  }
+}
+
+.gallery-image {
+  min-height: 300px;
+  border-radius: 20px;
+}
+
+.gallery-image:hover {
+  box-shadow: 0 3px 25px var(--color-yellow);
+  transform: scale(1.05);
+}
+
+.first-image {
+  background: no-repeat url("../images/food1.jpg") center/cover;
+}
+
+.second-image {
+  background: no-repeat url("../images/restourant3.jpg") center/cover;
+}
+
+.third-image {
+  background: no-repeat url("../images/restourant4.jpg") center/cover;
+}
+
+.fourth-image {
+  background: no-repeat url("../images/food2.jpg") center/cover;
+}
+
+.fifth-image {
+  background: no-repeat url("../images/person.jpg") center/cover;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 70px;
+  margin-inline: auto;
+  padding-block: 70px 40px;
+  background-color: var(--color-dark);
+}
+
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.footer-top::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-grey);
+  left: 0;
+  bottom: -35px;
+  opacity: 0.2;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.logo-footer {
+  max-width: 250px;
+  width: 100%;
+  font-size: 32px;
+}
+
+.footer-description {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.contact-link {
+  color: var(--color-light);
+}
+
+.contact-link:hover {
+  color: var(--color-grey);
+}
+
+.social-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-link {
+  padding: 9px 16px;
+  color: var(--color-light);
+  border: 1px solid currentColor;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.social-link:hover {
+  color: var(--color-grey);
+}
+
+.confirm-footer {
+  font-size: 14px;
+}
+
+@media (max-width: 1000px) {
+  .hero-left-title {
+    font-size: 10px;
+  }
+
+  .hero-left-text {
+    font-size: 48px;
+    line-height: 55px;
+  }
+
+  .hero-left-description {
+    font-size: 16px;
+  }
+
+  .hero-left-tags {
+    gap: 10px;
+  }
+
+  .about {
+    padding-block: 50px;
+    column-gap: 40px;
+  }
+
+  .discount {
+    padding-block: 50px;
+  }
+}
+
+@media (max-width: 750px) {
+
+  .container {
+    padding-inline: calc(var(--padding-container) / 2);
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .button-menu {
+    display: flex;
+  }
+
+  .header-buttons {
+    justify-content: center;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-block: 30px;
+  }
+
+  .hero-left-text {
+    font-size: 46px;
+  }
+
+  .hero-top-text {
+    white-space: wrap;
+  }
+
+  .hero-right {
+    padding: 15px;
+  }
+
+  .card-discount {
+    margin-inline: auto;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .discount-text {
+    font-size: 30px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about-left {
+    display: none;
+  }
+
+  .about-right {
+    padding-block: 20px;
+  }
+
+  .about-right::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: calc((var(--padding-container) / 2) - var(--padding-container));
+    background: url("../images/restourant2.jpg") no-repeat center/cover;
+    z-index: -1;
+    width: 100vw;
+    filter: brightness(0.4);
+  }
+
+  .discount {
+    row-gap: 25px;
+  }
+
+  .discount-medium {
+    gap: 10px;
+
+  }
+
+  .discount-card {
+    padding: 15px;
+  }
+
+  .discount-card-text {
+    font-size: 48px;
+  }
+
+  .discount-card-title {
+    font-size: 16px;
+  }
+
+  .discount-card-description {
+    font-size: 14px;
+  }
+
+  .gallery-bottom {
+    grid-template-rows: 7fr 6fr;
+    gap: 10px;
+    padding-inline: 25px;
+  }
+
+  .gallery-image {
+    min-height: 150px;
+  }
+
+  .gallery-line {
+    gap: 10px;
+    animation-duration: 4s;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top-social {
+    grid-column: -1 / 1;
+    width: 50%;
+    margin-inline: auto;
+    align-items: center;
+  }
+
+  .social-link {
+    padding: 7px 12px;
+  }
+
+  .footer-top-main {
+    align-items: start;
+  }
+
+  .footer-top-contact {
+    align-items: end;
+  }
+
+  @keyframes gallery-scrolling {
+    0%, 50%, 100% {
+      left: 0;
+    }
+    25% {
+      left: -25px;
+    }
+    75% {
+      left: 25px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header-container {
+    column-gap: 10px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .button {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .button-menu {
+    padding-inline: 5px;
+  }
+
+  .button-burger {
+    width: 25px;
+    height: 20px;
+  }
+
+  .hero-left {
+    row-gap: 15px;
+  }
+
+  .hero-left-text {
+    font-size: 38px;
+    line-height: 40px;
+  }
+
+  .hero-left-buttons {
+    column-gap: 5px;
+  }
+
+  .about-right {
+    padding: 5px;
+  }
+
+  .about-right-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .about-right-specification {
+    padding: 10px;
+  }
+
+  .about-right-specification:last-child,
+  .discount-card:last-child {
+    grid-column: -1 / 1;
+    width: 50%;
+    margin-inline: auto;
+  }
+
+  .discount-medium {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .discount-card-text {
+    font-size: 36px;
+  }
+
+  .discount-card-title {
+    font-size: 15px;
+  }
+
+  .discount-card-description {
+    font-size: 13px;
+  }
+
+  .footer-top {
+    gap: 10px;
+  }
+
+  .contact-link {
+    font-size: 14px;
+  }
+
+  .gallery-line,
+  .about-right-specification{
+    animation: none;
+  }
+
+}
